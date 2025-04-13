@@ -1,0 +1,4 @@
+Prompt 1: How to modify a .g4 file to add ByteSize and TimeDuration support?"
+"Prompt 2: Write a Java class for ByteSize parsing in Wrangler" 
+"Prompt 3: Generate unit tests for AggregateStats.java"
+"Prompt 4: How to push committed changes to GitHub from develop branch?"
