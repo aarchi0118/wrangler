@@ -326,4 +326,25 @@ public final class RecipeVisitor extends DirectivesBaseVisitor<RecipeSymbol.Buil
     int column = ctx.getStart().getCharPositionInLine();
     return new SourceInfo(lineno, column, text);
   }
+
+  /**
+ * A Directive can include a ByteSize argument (e.g., "10MB", "2.5GB").
+ * This visitor method extracts and converts the value to a ByteSize token.
+ */
+@Override
+public RecipeSymbol.Builder visitByteSize(DirectivesParser.ByteSizeContext ctx) {
+  builder.addToken(new io.cdap.wrangler.api.parser.ByteSize(ctx.getText()));
+  return builder;
+}
+
+/**
+ * A Directive can include a TimeDuration argument (e.g., "500ms", "2s").
+ * This visitor method extracts and converts the value to a TimeDuration token.
+ */
+@Override
+public RecipeSymbol.Builder visitTimeDuration(DirectivesParser.TimeDurationContext ctx) {
+  builder.addToken(new io.cdap.wrangler.api.parser.TimeDuration(ctx.getText()));
+  return builder;
+}
+
 }
